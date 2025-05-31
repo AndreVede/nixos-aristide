@@ -1,5 +1,5 @@
 {
-    description = "My light system to navigate easily. Aristide-on-road";
+  description = "My light system to navigate easily. Aristide-on-road";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
@@ -12,53 +12,54 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
-  let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
 
-      config = {
-        allowUnfree = true;
-      };
-    };
-  in {
-    check.${system} = {
-      pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
-        src = ./.;
-        hooks = {
-          nixpkgs-fmt.enable = true;
+        config = {
+          allowUnfree = true;
         };
       };
-    };
+    in
+    {
+      check.${system} = {
+        pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+          src = ./.;
+          hooks = {
+            nixpkgs-fmt.enable = true;
+          };
+        };
+      };
 
-    # Shell to build
-    devShells.${system}.default = pkgs.mkShell {
-      inherit (self.check.${system}.pre-commit-check) shellHook;
-      buildInputs = [
-        pkgs.nixos-rebuild
-        self.check.${system}.pre-commit-check.enabledPackages
-      ];
-    };
+      # Shell to build
+      devShells.${system}.default = pkgs.mkShell {
+        inherit (self.check.${system}.pre-commit-check) shellHook;
+        buildInputs = [
+          pkgs.nixos-rebuild
+          self.check.${system}.pre-commit-check.enabledPackages
+        ];
+      };
 
-    #nixosConfigurations = {
+      #nixosConfigurations = {
       # replace with hostname
-    #  Aristide-on-road = nixpkgs.lib.nixosSystem {
-     #   specialArgs = { inherit inputs system; };
+      #  Aristide-on-road = nixpkgs.lib.nixosSystem {
+      #   specialArgs = { inherit inputs system; };
       #  modules = [
-       #   ./nixos/configuration.nix
-        #];
+      #   ./nixos/configuration.nix
+      #];
       #};
-    #};
+      #};
 
-    # With this flake, you can now apply home-manager alone
-    #homeManagerConfigurations = {
+      # With this flake, you can now apply home-manager alone
+      #homeManagerConfigurations = {
       # replace with username
-    #  aristide = home-manager.lib.homeManagerConfiguration {
-    #    inherit pkgs;
-     #   modules = [
+      #  aristide = home-manager.lib.homeManagerConfiguration {
+      #    inherit pkgs;
+      #   modules = [
       #    ./home-manager/home.nix
       #  ];
       #};
-    #};
-  };
+      #};
+    };
 }
