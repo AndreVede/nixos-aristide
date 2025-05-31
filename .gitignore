@@ -1,0 +1,5 @@
+# build
+result
+result-*
+# fmt
+/.pre-commit-config.yaml
