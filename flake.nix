@@ -22,7 +22,7 @@
       };
     };
   in {
-    check = {
+    check.${system} = {
       pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
         src = ./.;
         hooks = {
@@ -40,25 +40,25 @@
       ];
     };
 
-    nixosConfigurations = {
+    #nixosConfigurations = {
       # replace with hostname
-      Aristide-on-road = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs system; };
-        modules = [
-          ./nixos/configuration.nix
-        ];
-      };
-    };
+    #  Aristide-on-road = nixpkgs.lib.nixosSystem {
+     #   specialArgs = { inherit inputs system; };
+      #  modules = [
+       #   ./nixos/configuration.nix
+        #];
+      #};
+    #};
 
     # With this flake, you can now apply home-manager alone
-    homeManagerConfigurations = {
+    #homeManagerConfigurations = {
       # replace with username
-      aristide = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          ./home-manager/home.nix
-        ];
-      };
-    };
+    #  aristide = home-manager.lib.homeManagerConfiguration {
+    #    inherit pkgs;
+     #   modules = [
+      #    ./home-manager/home.nix
+      #  ];
+      #};
+    #};
   };
 }
