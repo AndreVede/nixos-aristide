@@ -14,6 +14,7 @@
       ./sound.nix
       ./cinnamon.nix
       ./programs.nix
+      ./waydroid.nix
     ];
 
   # Bootloader
