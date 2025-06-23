@@ -5,7 +5,11 @@
       enable = true;
     };
     # Install firefox.
-    firefox.enable = true;
+    firefox = {
+      enable = true;
+      languagePacks = [ "fr" ];
+    };
+    chromium.enable = true;
 
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
@@ -108,6 +112,7 @@
 
       # Video and Audio montage
       kdePackages.kdenlive
+      ffmpeg
 
       # Meetings
       zoom-us
@@ -123,6 +128,9 @@
       kdePackages.okular
 
       # Browsers
+      brave
+      vivaldi
+      vivaldi-ffmpeg-codecs
 
       # Programation
       vscode
