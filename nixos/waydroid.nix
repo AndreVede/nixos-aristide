@@ -4,6 +4,8 @@
 
   environment.systemPackages = with pkgs; [
     wl-clipboard
+    xclip
+    python313Packages.pyclip
     weston
   ];
 

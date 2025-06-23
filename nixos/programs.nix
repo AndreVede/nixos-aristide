@@ -96,6 +96,9 @@
       pciutils # lspci
       usbutils # lsusb
 
+      # Programation tools
+      python3Full
+
       # APPS
 
       # Desk
