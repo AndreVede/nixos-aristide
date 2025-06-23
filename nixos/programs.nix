@@ -16,6 +16,8 @@
     };
 
     kdeconnect.enable = true;
+
+    zoom-us.enable = true;
   };
 
 
@@ -121,6 +123,10 @@
       kdePackages.okular
 
       # Browsers
+
+      # Programation
+      vscode
+      zed-editor
     ];
 
 

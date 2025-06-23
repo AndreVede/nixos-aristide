@@ -5,15 +5,13 @@
   # home.homeDirectory = /home/username;
 
   home.packages = with pkgs; [
-    neovim
   ];
 
   home.file = {
     # .bashrc, ...
-  };
-
-  home.sessionVariables = {
-    EDITOR = "vim";
+    ".local/share/zsh/zsh-autosuggestions".source = "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions";
+    ".local/share/zsh/zsh-fast-syntax-highlighting".source = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions";
+    ".local/share/zsh/nix-zsh-completions".source = "${pkgs.nix-zsh-completions}/share/zsh/plugins/nix";
   };
 
   programs.git = {
@@ -34,6 +32,47 @@
     envExtra = ''
       
     '';
+  };
+
+  programs.neovim = {
+    enable = true;
+    package = pkgs.neovim-unwrapped;
+    defaultEditor = true;
+    withNodeJs = true;
+    withPython3 = true;
+    withRuby = true;
+
+    extraPackages = with pkgs; [
+      alejandra
+      black
+      golangci-lint
+      gopls
+      gotools
+      hadolint
+      isort
+      lua-language-server
+      markdownlint-cli
+      nixd
+      nodePackages.bash-language-server
+      nodePackages.prettier
+      pyright
+      ruff
+      shellcheck
+      shfmt
+      stylua
+      terraform-ls
+      tflint
+      vscode-langservers-extracted
+      yaml-language-server
+    ];
+  };
+
+  # source lua config from this repo
+  xdg.configFile = {
+    "nvim" = {
+      source = ./nvim;
+      recursive = true;
+    };
   };
 
   home.stateVersion = "25.05";

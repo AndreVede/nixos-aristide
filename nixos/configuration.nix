@@ -16,22 +16,57 @@
       ./programs.nix
     ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # Bootloader
+  boot = {
+    plymouth = {
+      enable = true;
+      theme = "hexagon_2";
+      themePackages = with pkgs; [
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "hexagon_2" ];
+        })
+      ];
+    };
 
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+    # Enable "Silent Boot"
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+    ];
 
-  networking.hostName = "Aristide-on-road"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    loader = {
+      timeout = 0;
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+    # Use latest kernel.
+    kernelPackages = pkgs.linuxPackages_latest;
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+  };
+
+  networking = {
+    hostName = "Aristide-on-road"; # Define your hostname.
+    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+    # Configure network proxy if necessary
+    # proxy = {
+    #   default = "http://user:password@proxy:port/";
+    #   noProxy = "127.0.0.1,localhost,internal.domain";
+    # };
+
+    # Enable networking
+    networkmanager.enable = true;
+  };
+
+
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
