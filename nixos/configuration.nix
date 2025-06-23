@@ -95,9 +95,13 @@
     isNormalUser = true;
     description = "Zacharie André Aristide Boisnard";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      #  thunderbird
-    ];
+    shell = pkgs.zsh;
+  };
+
+  programs = {
+    zsh = {
+      enable = true;
+    };
   };
 
   # Install firefox.
