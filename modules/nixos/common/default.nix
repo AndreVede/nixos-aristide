@@ -7,6 +7,10 @@
 , pkgs
 , ...
 }: {
+  imports = [
+    ./sound
+  ];
+
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -79,6 +83,15 @@
   zramSwap = {
     enable = true;
   };
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.${userConfig.name} = {
+    isNormalUser = true;
+    description = "${userConfig.fullName}";
+    extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
+  };
+
 
   nix = {
     # Auto Clean

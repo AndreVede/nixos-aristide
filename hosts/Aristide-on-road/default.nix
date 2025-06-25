@@ -11,12 +11,11 @@
       ./hardware-configuration.nix
       # modules
       "${nixosModules}/common"
+      "${nixosModules}/virtualization/waydroid"
       # configuration parts
       ./language.nix
-      ./sound.nix
       ./cinnamon.nix
       ./programs.nix
-      ./waydroid.nix
     ];
 
   # Set your time zone.
@@ -45,16 +44,6 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${userConfig.name} = {
-    isNormalUser = true;
-    description = "${userConfig.fullName}";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
-  };
 
   # Security Layer
   # Firewall
