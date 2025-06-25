@@ -2,13 +2,15 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, inputs, pkgs, ... }:
+{ config, nixosModules, userConfig, inputs, pkgs, ... }:
 
 {
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      # modules
+      "${nixosModules}/common"
       # configuration parts
       ./language.nix
       ./sound.nix
@@ -16,58 +18,6 @@
       ./programs.nix
       ./waydroid.nix
     ];
-
-  # Bootloader
-  boot = {
-    plymouth = {
-      enable = true;
-      theme = "hexagon_2";
-      themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "hexagon_2" ];
-        })
-      ];
-    };
-
-    # Enable "Silent Boot"
-    consoleLogLevel = 0;
-    initrd.verbose = false;
-    kernelParams = [
-      "quiet"
-      "splash"
-      "boot.shell_on_fail"
-      "loglevel=3"
-      "rd.systemd.show_status=false"
-      "rd.udev.log_level=3"
-      "udev.log_priority=3"
-    ];
-
-    loader = {
-      timeout = 0;
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-
-    # Use latest kernel.
-    kernelPackages = pkgs.linuxPackages_latest;
-
-  };
-
-  networking = {
-    hostName = "Aristide-on-road"; # Define your hostname.
-    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-    # Configure network proxy if necessary
-    # proxy = {
-    #   default = "http://user:password@proxy:port/";
-    #   noProxy = "127.0.0.1,localhost,internal.domain";
-    # };
-
-    # Enable networking
-    networkmanager.enable = true;
-  };
-
-
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
@@ -99,16 +49,11 @@
 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.aristide = {
+  users.users.${userConfig.name} = {
     isNormalUser = true;
-    description = "Zacharie André Aristide Boisnard";
+    description = "${userConfig.fullName}";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
-  };
-
-  # RAM
-  zramSwap = {
-    enable = true;
   };
 
   # Security Layer
@@ -133,29 +78,6 @@
     #openFirewall = true;
   };
 
-
-  nix = {
-    # Auto Clean
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 14d";
-    };
-
-    settings = {
-      # Data optimization
-      auto-optimise-store = true;
-
-      # Experimental features
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-    };
-  };
-
-
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -163,5 +85,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }
