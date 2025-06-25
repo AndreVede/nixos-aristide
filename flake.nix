@@ -13,6 +13,19 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
+      inherit (self) outputs;
+
+      # Define user configurations
+      users = {
+        aristide = {
+          # avatar = ./files/avatar/face;
+          email = "mecazack@gmail.com";
+          fullName = "Zacharie André Aristide Boisnard";
+          # gitKey = "";
+          name = "aristide";
+        };
+      };
+
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
@@ -21,6 +34,49 @@
           allowUnfree = true;
         };
       };
+
+      # Function for NixOS system configuration
+      mkNixosConfiguration = hostname: username:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs hostname system;
+            userConfig = users.${username};
+            nixosModules = "${self}/modules/nixos";
+          };
+
+          modules = [
+            ./hosts/${hostname}
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                extraSpecialArgs = {
+                  inherit inputs outputs;
+                  pkgs = import nixpkgs { inherit system; };
+                  userConfig = users.${username};
+                  nhModules = "${self}/modules/home-manager";
+                };
+
+                users.${username} = ./home/${username}/${hostname};
+              };
+            }
+          ];
+        };
+
+      # Function for Home Manager configuration
+      mkHomeConfiguration = system: username: hostname:
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs { inherit system; };
+
+          extraSpecialArgs = {
+            inherit inputs outputs;
+            userConfig = users.${username};
+            nhModules = "${self}/modules/home-manager";
+          };
+
+          modules = [
+            ./home/${username}/${hostname}
+          ];
+        };
     in
     {
       check.${system} = {
@@ -42,37 +98,12 @@
       };
 
       nixosConfigurations = {
-        # replace with hostname
-        Aristide-on-road = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs system; };
-          modules = [
-            ./nixos/configuration.nix
-            # make home-manager as a module of nixos
-            # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-
-              # replace with username
-              home-manager = {
-                users.aristide = import ./home-manager/home.nix;
-                extraSpecialArgs = { inherit inputs pkgs; };
-              };
-            }
-          ];
-        };
+        Aristide-on-road = mkNixosConfiguration "Aristide-on-road" "aristide";
       };
 
       # With this flake, you can now apply home-manager alone
       homeManagerConfigurations = {
-        # replace with username
-        aristide = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            ./home-manager/home.nix
-          ];
-        };
+        "aristide@Aristide-on-road" = mkHomeConfiguration "x86_64-linux" "aristide" "Aristide-on-road";
       };
     };
 }
