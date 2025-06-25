@@ -9,6 +9,7 @@
 }: {
   imports = [
     ./sound
+    ./language
   ];
 
   nixpkgs = {
@@ -78,6 +79,39 @@
     # Enable networking
     networkmanager.enable = true;
   };
+
+  # Enables support for Bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
+  # Set your time zone.
+  time.timeZone = "Europe/Paris";
+
+  # Enable the X11 windowing system.
+  services.xserver = {
+    enable = true;
+    # Configure keymap in X11
+    xkb = {
+      layout = "fr,us";
+      variant = ",intl";
+      # Enable touchpad support (enabled default in most desktopManager).
+      # libinput.enable = true;
+    };
+  };
+
+
+  # Configure console keymap
+  console.keyMap = "fr";
+
+  # font
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
 
   # RAM
   zramSwap = {

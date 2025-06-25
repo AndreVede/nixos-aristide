@@ -12,38 +12,10 @@
       # modules
       "${nixosModules}/common"
       "${nixosModules}/virtualization/waydroid"
+      "${nixosModules}/desktop/cinnamon"
       # configuration parts
-      ./language.nix
-      ./cinnamon.nix
       ./programs.nix
     ];
-
-  # Set your time zone.
-  time.timeZone = "Europe/Paris";
-
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    # Configure keymap in X11
-    xkb = {
-      layout = "fr";
-      variant = "";
-      # Enable touchpad support (enabled default in most desktopManager).
-      # libinput.enable = true;
-    };
-  };
-
-
-  # Configure console keymap
-  console.keyMap = "fr";
-
-  # font
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   # Security Layer
   # Firewall

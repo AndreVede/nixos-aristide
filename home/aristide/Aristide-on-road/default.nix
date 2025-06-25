@@ -3,6 +3,7 @@
 
   imports = [
     "${nhModules}/common"
+    "${nhModules}/desktop/cinnamon"
     "${nhModules}/programs/zsh"
     "${nhModules}/programs/git"
     "${nhModules}/programs/neovim"
