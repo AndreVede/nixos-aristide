@@ -12,9 +12,8 @@
       # modules
       "${nixosModules}/common"
       "${nixosModules}/virtualization/waydroid"
+      "${nixosModules}/virtualization/docker"
       "${nixosModules}/desktop/cinnamon"
-      # configuration parts
-      ./programs.nix
     ];
 
   # Security Layer

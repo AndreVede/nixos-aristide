@@ -5,11 +5,13 @@
 , userConfig
 , hostname
 , pkgs
+, nixosModules
 , ...
 }: {
   imports = [
-    ./sound
-    ./language
+    "${nixosModules}/common/sound"
+    "${nixosModules}/common/language"
+    "${nixosModules}/programs/common"
   ];
 
   nixpkgs = {
