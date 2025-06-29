@@ -99,6 +99,7 @@
 
       # Programation tools
       python3Full
+      bun
 
       # APPS
 

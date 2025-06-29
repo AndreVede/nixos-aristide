@@ -14,6 +14,7 @@
       "${nixosModules}/virtualization/waydroid"
       "${nixosModules}/virtualization/docker"
       "${nixosModules}/desktop/cinnamon"
+      "${nixosModules}/services/autoupgrade-native"
     ];
 
   # Security Layer
