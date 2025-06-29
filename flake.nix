@@ -21,7 +21,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, ... }@inputs:
     let
       inherit (self) outputs;
 
@@ -37,7 +37,16 @@
       };
 
       system = "x86_64-linux";
+
       pkgs = import nixpkgs {
+        inherit system;
+
+        config = {
+          allowUnfree = true;
+        };
+      };
+
+      pkgs-unstable = import nixpkgs-unstable {
         inherit system;
 
         config = {
@@ -61,7 +70,22 @@
               home-manager = {
                 extraSpecialArgs = {
                   inherit inputs outputs;
-                  pkgs = import nixpkgs { inherit system; };
+                  pkgs = import nixpkgs {
+                    inherit system;
+
+                    config = {
+                      allowUnfree = true;
+                    };
+                  };
+
+                  pkgs-unstable = import nixpkgs-unstable {
+                    inherit system;
+
+                    config = {
+                      allowUnfree = true;
+                    };
+                  };
+
                   userConfig = users.${username};
                   nhModules = "${self}/modules/home-manager";
                 };
@@ -75,7 +99,22 @@
       # Function for Home Manager configuration
       mkHomeConfiguration = system: username: hostname:
         home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs { inherit system; };
+          pkgs = import nixpkgs {
+            inherit system;
+
+            config = {
+              allowUnfree = true;
+            };
+          };
+
+          pkgs-unstable = import nixpkgs-unstable {
+            inherit system;
+
+            config = {
+              allowUnfree = true;
+            };
+          };
+
 
           extraSpecialArgs = {
             inherit inputs outputs;
