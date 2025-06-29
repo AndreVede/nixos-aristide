@@ -1,12 +1,18 @@
 { pkgs, pkgs-unstable, ... }: {
 
-
-  nixpkgs.config.kodi.enableAdvancedLauncher = true;
-
   # Ensure common packages are installed
   home.packages = with pkgs;
     [
-      kodi
+      (pkgs.kodi.withPackages (kodiPkgs: with kodiPkgs; [
+        urllib3
+        youtube
+        invidious
+        sponsorblock
+        pvr-iptvsimple
+        inputstreamhelper
+        inputstream-adaptive
+        inputstream-ffmpegdirect
+      ]))
     ];
 
 
