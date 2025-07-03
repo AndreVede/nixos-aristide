@@ -132,6 +132,9 @@
       # Reading
       kdePackages.okular
 
+      # Taking notes
+      cherrytree
+
       # Browsers
       brave
       vivaldi
@@ -140,6 +143,9 @@
       # Programation
       vscode
       zed-editor
+
+      # Confidentiality
+      bitwarden-desktop
     ];
 
 
