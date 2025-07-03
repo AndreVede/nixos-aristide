@@ -11,8 +11,9 @@
       ./hardware-configuration.nix
       # modules
       "${nixosModules}/common"
-      "${nixosModules}/virtualization/waydroid"
-      "${nixosModules}/virtualization/docker"
+      "${nixosModules}/virtualisation/waydroid"
+      "${nixosModules}/virtualisation/docker"
+      "${nixosModules}/virtualisation/virt-manager"
       "${nixosModules}/desktop/cinnamon"
       "${nixosModules}/services/autoupgrade-native"
     ];

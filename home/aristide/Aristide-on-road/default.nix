@@ -8,6 +8,7 @@
     "${nhModules}/programs/git"
     "${nhModules}/programs/neovim"
     "${nhModules}/programs/kodi"
+    "${nhModules}/virtualisation/qemu"
   ];
 
   home.stateVersion = "25.05";
