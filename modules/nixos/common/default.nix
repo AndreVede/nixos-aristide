@@ -115,9 +115,6 @@
     nerd-fonts.jetbrains-mono
   ];
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
   # RAM
   zramSwap = {
     enable = true;

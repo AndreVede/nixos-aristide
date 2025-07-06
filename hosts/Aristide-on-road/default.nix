@@ -16,6 +16,7 @@
       "${nixosModules}/virtualisation/virt-manager"
       "${nixosModules}/desktop/cinnamon"
       "${nixosModules}/services/autoupgrade-native"
+      "${nixosModules}/services/printer"
     ];
 
   # Security Layer
