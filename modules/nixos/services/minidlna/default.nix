@@ -13,6 +13,6 @@
   };
 
   users.users.minidlna = {
-    extraGroups = [ "users" ];
+    extraGroups = [ "users" ]; # so minidlna can access the files.
   };
 }
