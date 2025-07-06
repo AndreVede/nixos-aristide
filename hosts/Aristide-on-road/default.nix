@@ -17,6 +17,7 @@
       "${nixosModules}/desktop/cinnamon"
       "${nixosModules}/services/autoupgrade-native"
       "${nixosModules}/services/printer"
+      "${nixosModules}/services/minidlna"
     ];
 
   # Security Layer
