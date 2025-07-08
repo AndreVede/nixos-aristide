@@ -39,7 +39,6 @@
       dust
       duf
       fd
-      batcat
       nnn
 
       # archives
