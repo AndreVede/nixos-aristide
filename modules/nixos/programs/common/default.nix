@@ -21,8 +21,6 @@
     };
 
     kdeconnect.enable = true;
-
-    zoom-us.enable = true;
   };
 
 
@@ -40,7 +38,10 @@
       neofetch
       dust
       duf
+      fd
+      batcat
       nnn
+
       # archives
       zip
       xz
@@ -48,12 +49,14 @@
       p7zip
       rar
       unrar
+
       # utils
       ripgrep # recursively searches directories for a regex pattern
       jq # A lightweight and flexible command-line JSON processor
       yq-go # yaml processor https://github.com/mikefarah/yq
       eza # A modern replacement for ‘ls’
       fzf # A command-line fuzzy finder
+
       # networking tools
       mtr # A network diagnostic tool
       iperf3
@@ -63,6 +66,7 @@
       socat # replacement of openbsd-netcat
       nmap # A utility for network discovery and security auditing
       ipcalc # it is a calculator for the IPv4/v6 addresses
+
       # misc
       cowsay
       file
@@ -73,11 +77,13 @@
       gawk
       zstd
       gnupg
+
       # nix related
       #
       # it provides the command `nom` works just like `nix`
       # with more details log output
       nix-output-monitor
+
       # productivity
       hugo # static site generator
       glow # markdown previewer in terminal
@@ -107,27 +113,8 @@
       libreoffice-fresh
       anydesk
 
-      # Design
-      gimp3-with-plugins
-      krita
-      krita-plugin-gmic
-      scribus
-      inkscape-with-extensions
-      blender
-
       # Video and Audio montage
-      kdePackages.kdenlive
       ffmpeg
-
-      # Meetings
-      zoom-us
-
-      # Games
-
-      # Multimedia
-      vlc
-      smplayer
-      clementine
 
       # Reading
       kdePackages.okular
