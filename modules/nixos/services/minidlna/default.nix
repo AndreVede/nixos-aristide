@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       media_dir = [
-        "/home/${userConfig.name}/DLNA"
+        "/home/${userConfig.name}/public/DLNA"
       ];
       friendly_name = "${hostname} partage !";
       inotify = "yes";
@@ -11,6 +11,10 @@
     };
     openFirewall = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    inotify-tools
+  ];
 
   users.users.minidlna = {
     extraGroups = [ "users" ]; # so minidlna can access the files.
