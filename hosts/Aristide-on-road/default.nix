@@ -18,11 +18,11 @@
       "${nixosModules}/services/autoupgrade-native"
       "${nixosModules}/services/printer"
       "${nixosModules}/services/minidlna"
-      "${nixosModules}/services/3d"
-      "${nixosModules}/services/design"
-      "${nixosModules}/services/meetings"
-      "${nixosModules}/services/multimedia"
-      "${nixosModules}/services/video-montage"
+      "${nixosModules}/programs/3d"
+      "${nixosModules}/programs/design"
+      "${nixosModules}/programs/meetings"
+      "${nixosModules}/programs/multimedia"
+      "${nixosModules}/programs/video-montage"
     ];
 
   # Security Layer
