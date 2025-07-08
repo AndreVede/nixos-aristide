@@ -1,3 +1,17 @@
 { pkgs, ... }: {
-  programs.zoom-us.enable = true;
+  programs.zoom-us = {
+    enable = true;
+    package = pkgs.zoom-us.overrideAttrs (old: {
+      buildInputs = old.buildInputs ++ [
+        pkgs.ffmpeg
+        pkgs.libva
+        pkgs.libvdpau
+      ];
+    });
+  };
+
+  environment.variables = {
+    # Variable interne Zoom (optionnel selon version) pour autoriser la virtual background sans green screen
+    ZOOM_ELECTRON_VIRTUAL_BACKGROUND = "1";
+  };
 }

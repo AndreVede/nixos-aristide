@@ -11,18 +11,24 @@
       ./hardware-configuration.nix
       # modules
       "${nixosModules}/common"
+      # virt
       "${nixosModules}/virtualisation/waydroid"
       "${nixosModules}/virtualisation/docker"
       "${nixosModules}/virtualisation/virt-manager"
+      # desktop
       "${nixosModules}/desktop/cinnamon"
+      # services
       "${nixosModules}/services/autoupgrade-native"
       "${nixosModules}/services/printer"
       "${nixosModules}/services/minidlna"
+      # programs
       "${nixosModules}/programs/3d"
       "${nixosModules}/programs/design"
       "${nixosModules}/programs/meetings"
       "${nixosModules}/programs/multimedia"
       "${nixosModules}/programs/video-montage"
+      # hardware
+      "${nixosModules}/hardware/graphics"
     ];
 
   # Security Layer
