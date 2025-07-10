@@ -127,7 +127,7 @@
       vivaldi-ffmpeg-codecs
 
       # Programation
-      vscode
+      vscode-fhs
       zed-editor
 
       # Confidentiality

@@ -23,7 +23,7 @@ in
 
     variables = {
       # Variable interne Zoom (optionnel selon version) pour autoriser la virtual background sans green screen
-      #ZOOM_ELECTRON_VIRTUAL_BACKGROUND = "1";
+      ZOOM_ELECTRON_VIRTUAL_BACKGROUND = "1";
     };
   };
 }
