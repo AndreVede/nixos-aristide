@@ -7,6 +7,7 @@
     "${nhModules}/programs/zsh"
     "${nhModules}/programs/git"
     "${nhModules}/programs/neovim"
+    "${nhModules}/programs/vim"
     "${nhModules}/programs/kodi"
     "${nhModules}/virtualisation/qemu"
   ];
