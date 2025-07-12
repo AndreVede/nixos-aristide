@@ -1,14 +1,14 @@
-{ pkgs, ... }: {
+{ pkgs, userConfig, ... }: {
   programs.gnome-terminal = {
     enable = true;
     showMenubar = false;
 
-    profile.myConfig = {
-      default = true;
-      visibleName = "my-config";
+    #profile.${userConfig.name} = {
+    #  default = true;
+    #  visibleName = "my-config";
 
-      showScrollbar = false;
-      font = "JetBrainsMono NF 20";
-    };
+    #  showScrollbar = false;
+    #  font = "JetBrainsMono NF 20";
+    #};
   };
 }
