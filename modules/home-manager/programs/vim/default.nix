@@ -100,6 +100,7 @@
       set wrap "Wrap lines
 
       set nu
+      set mouse=a
     '';
   };
 }
