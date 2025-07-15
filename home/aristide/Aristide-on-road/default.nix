@@ -1,7 +1,4 @@
 { lib, nhModules, ... }:
-
-with lib.hm.gvariant;
-
 {
   imports = [
     "${nhModules}/common"
