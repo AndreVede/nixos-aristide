@@ -15,7 +15,7 @@
   dconf.settings = {
 
     # alimentation
-    "/org/cinnamon/settings-daemon/plugins/power" = {
+    "org/cinnamon/settings-daemon/plugins/power" = {
       sleep-display-battery = 1800;
       sleep-display-ac = 1800;
     };
