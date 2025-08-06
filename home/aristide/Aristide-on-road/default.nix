@@ -36,6 +36,11 @@
       command = "weston";
       name = "weston";
     };
+
+    # Keyboard Layout toggle
+    "org/gnome/libgnomekbd/keyboard" = {
+      options = [ "grptgrp:win_space_toggle" ];
+    };
   };
 
   home.stateVersion = "25.05";
