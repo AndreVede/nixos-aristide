@@ -10,6 +10,9 @@
       background = ../../../../files/earth1-bg.jpg;
     };
     desktopManager.cinnamon.enable = true;
-
   };
+
+  environment.systemPackages = [
+    pkgs.gnome-characters
+  ];
 }
