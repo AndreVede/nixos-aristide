@@ -1,4 +1,4 @@
-{ lib, nhModules, ... }:
+{ lib, nhModules, pkgs, ... }:
 {
   imports = [
     "${nhModules}/common"
@@ -42,6 +42,12 @@
       options = [ "grptgrp:win_space_toggle" ];
     };
   };
+
+  # specific needs
+  home.packages = with pkgs; [
+    # AI code editor
+    code-cursor-fhs
+  ];
 
   home.stateVersion = "25.05";
   programs.home-manager.enable = true;
