@@ -30,6 +30,7 @@
       vscode-langservers-extracted
       yaml-language-server
       rust-analyzer
+      clippy
     ];
   };
 
