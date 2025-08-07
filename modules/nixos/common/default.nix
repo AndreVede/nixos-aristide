@@ -110,6 +110,8 @@
   # Configure console keymap
   console.keyMap = "fr";
 
+  programs.dconf.enable = true;
+
   # font
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
