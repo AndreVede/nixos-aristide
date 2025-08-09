@@ -132,6 +132,9 @@
 
       # Confidentiality
       bitwarden-desktop
+
+      # Cleanup
+      bleachbit
     ];
 
 
