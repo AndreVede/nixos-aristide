@@ -109,7 +109,6 @@
       # APPS
 
       # Desk
-      libreoffice-fresh
       anydesk
 
       # Video and Audio montage

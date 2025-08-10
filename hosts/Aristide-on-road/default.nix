@@ -23,6 +23,7 @@
       "${nixosModules}/services/minidlna"
       # programs
       "${nixosModules}/programs/3d"
+      "${nixosModules}/programs/office"
       "${nixosModules}/programs/design"
       "${nixosModules}/programs/meetings"
       "${nixosModules}/programs/multimedia"
