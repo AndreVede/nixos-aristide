@@ -12,6 +12,7 @@
         inputstreamhelper
         inputstream-adaptive
         inputstream-ffmpegdirect
+        sendtokodi
       ]))
     ];
 

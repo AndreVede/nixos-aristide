@@ -22,8 +22,9 @@
       "${nixosModules}/services/printer"
       "${nixosModules}/services/minidlna"
       # programs
-      "${nixosModules}/programs/3d"
       "${nixosModules}/programs/office"
+      "${nixosModules}/programs/cli-multimedia-document-tool"
+      "${nixosModules}/programs/3d"
       "${nixosModules}/programs/design"
       "${nixosModules}/programs/meetings"
       "${nixosModules}/programs/multimedia"

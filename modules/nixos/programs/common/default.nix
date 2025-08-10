@@ -105,6 +105,7 @@
       # Programation tools
       python3Full
       bun
+      rustup
 
       # APPS
 
