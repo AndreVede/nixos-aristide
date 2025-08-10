@@ -47,6 +47,8 @@
   home.packages = with pkgs; [
     # AI code editor
     code-cursor-fhs
+    # Download video
+    parabolic
   ];
 
   home.stateVersion = "25.05";
