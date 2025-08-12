@@ -1,6 +1,7 @@
 { lib, nhModules, pkgs, ... }:
 {
   imports = [
+    "${nhModules}/misc/profile-picture"
     "${nhModules}/common"
     "${nhModules}/desktop/cinnamon"
     # "${nhModules}/programs/gnome-terminal"
