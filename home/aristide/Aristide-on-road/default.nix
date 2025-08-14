@@ -40,7 +40,7 @@
 
     # Keyboard Layout toggle
     "org/gnome/libgnomekbd/keyboard" = {
-      options = [ "grptgrp:win_space_toggle" ];
+      options = [ "grp\tgrp:win_space_toggle" ];
     };
   };
 
