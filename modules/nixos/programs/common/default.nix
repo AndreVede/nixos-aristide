@@ -89,6 +89,7 @@
       btop # replacement of htop/nmon
       iotop # io monitoring
       iftop # network monitoring
+      screen # multi-instance cli
 
       # system call monitoring
       strace # system call monitoring
