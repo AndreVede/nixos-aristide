@@ -5,11 +5,10 @@
   ];
 
   virtualisation = {
-    libvirtd.enable = true;
+    libvirtd = {
+      enable = true;
+      qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
+    };
     spiceUSBRedirection.enable = true;
   };
-
-  environment.systemPackages = with pkgs; [
-    virtiofsd
-  ];
 }
