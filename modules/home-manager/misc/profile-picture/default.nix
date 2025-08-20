@@ -1,5 +1,5 @@
-{ ... }: {
+{ userConfig, ... }: {
   home.file.".face" = {
-    source = ./profile_jazz.png;
+    source = userConfig.avatar;
   };
 }

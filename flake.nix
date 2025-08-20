@@ -28,7 +28,7 @@
       # Define user configurations
       users = {
         aristide = {
-          # avatar = ./files/avatar/face;
+          avatar = ./files/avatar/profile_jazz.png;
           email = "mecazack@gmail.com";
           fullName = "Zacharie André Aristide Boisnard";
           # gitKey = "";
