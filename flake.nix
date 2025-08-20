@@ -1,5 +1,5 @@
 {
-  description = "My light system to navigate easily. Aristide-on-road";
+  description = "My light system to navigate easily. Create specific systems for my use-cases.";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
