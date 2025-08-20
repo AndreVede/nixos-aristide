@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }:
+{
 
   programs = {
     zsh = {
@@ -19,8 +20,6 @@
       enable = true;
       enableSSHSupport = true;
     };
-
-    kdeconnect.enable = true;
   };
 
 
@@ -103,11 +102,6 @@
       pciutils # lspci
       usbutils # lsusb
 
-      # Programation tools
-      python3Full
-      bun
-      rustup
-
       # APPS
 
       # Desk
@@ -126,10 +120,6 @@
       brave
       vivaldi
       vivaldi-ffmpeg-codecs
-
-      # Programation
-      vscode-fhs
-      zed-editor
 
       # Confidentiality
       bitwarden-desktop

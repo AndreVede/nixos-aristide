@@ -151,11 +151,13 @@
 
       nixosConfigurations = {
         Aristide-on-road = mkNixosConfiguration "Aristide-on-road" "aristide";
+        Aristide-room = mkNixosConfiguration "Aristide-room" "aristide";
       };
 
       # With this flake, you can now apply home-manager alone
       homeManagerConfigurations = {
         "aristide@Aristide-on-road" = mkHomeConfiguration "x86_64-linux" "aristide" "Aristide-on-road";
+        "aristide@Aristide-room" = mkHomeConfiguration "x86_64-linux" "aristide" "Aristide-room";
       };
     };
 }
