@@ -7,7 +7,9 @@
 
     displayManager.gdm = {
       enable = true;
-      background = ../../../../files/earth1-bg.jpg;
+      settings = {
+        background = ../../../../files/earth1-bg.jpg;
+      };
     };
     desktopManager.gnome.enable = true;
   };
