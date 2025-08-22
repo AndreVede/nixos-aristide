@@ -7,3 +7,9 @@ I deploy multiple configurations :
 - My nomad PC.
 - My TV room PC.
 
+## Misc
+
+### Bluray support
+
+Follow this [documentation](https://wiki.videolan.org/VSG:Usage:Blu-ray/).
+
