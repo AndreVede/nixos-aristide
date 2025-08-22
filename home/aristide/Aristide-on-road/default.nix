@@ -10,6 +10,7 @@
     "${nhModules}/programs/neovim"
     "${nhModules}/programs/vim"
     "${nhModules}/programs/kodi"
+    "${nhModules}/programs/weston"
     "${nhModules}/virtualisation/qemu"
   ];
 
