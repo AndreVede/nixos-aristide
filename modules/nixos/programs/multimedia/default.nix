@@ -3,17 +3,20 @@ let
   libbluray = pkgs.libbluray.override {
     withAACS = true;
     withBDplus = true;
+    libaacs = pkgs.libaacs;
+    libbdplus = pkgs.libbdplus;
   };
-  vlc = pkgs.vlc.override { inherit libbluray; };
+  myVlc = pkgs.vlc.override { inherit libbluray; };
 in
 {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     # Multimedia
-    vlc
-    libvlc
-    mpv
-    haruna
-    smplayer
-    clementine
+    myVlc
+    libbluray
+    pkgs.libvlc
+    pkgs.mpv
+    pkgs.haruna
+    pkgs.smplayer
+    pkgs.clementine
   ];
 }
