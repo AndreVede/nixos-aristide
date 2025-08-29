@@ -12,6 +12,7 @@
     "${nixosModules}/common/sound"
     "${nixosModules}/common/language"
     "${nixosModules}/programs/common"
+    "${nixosModules}/programs/zsh"
   ];
 
   nixpkgs = {
