@@ -5,8 +5,6 @@
     [
       (pkgs.kodi.withPackages (kodiPkgs: with kodiPkgs; [
         urllib3
-        youtube
-        invidious
         sponsorblock
         pvr-iptvsimple
         inputstreamhelper
