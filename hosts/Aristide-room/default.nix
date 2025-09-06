@@ -10,6 +10,7 @@
       # services
       "${nixosModules}/services/autoupgrade-native"
       "${nixosModules}/services/printer"
+      "${nixosModules}/services/minidlna"
       # programs
       "${nixosModules}/programs/kdeconnect"
       "${nixosModules}/programs/multimedia"
