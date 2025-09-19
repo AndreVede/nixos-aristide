@@ -31,6 +31,7 @@
       "${nixosModules}/programs/meetings"
       "${nixosModules}/programs/multimedia"
       "${nixosModules}/programs/video-montage"
+      "${nixosModules}/programs/music-edit"
       # hardware
       "${nixosModules}/hardware/graphics"
     ];
