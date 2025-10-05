@@ -53,6 +53,8 @@
     code-cursor-fhs
     # Download video
     parabolic
+    # DVD num
+    handbrake
   ];
 
   home.stateVersion = "25.05";
