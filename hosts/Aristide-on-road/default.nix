@@ -32,6 +32,8 @@
       "${nixosModules}/programs/multimedia"
       "${nixosModules}/programs/video-montage"
       "${nixosModules}/programs/music-edit"
+      # Video games
+      "${nixosModules}/programs/steam"
       # hardware
       "${nixosModules}/hardware/graphics"
     ];

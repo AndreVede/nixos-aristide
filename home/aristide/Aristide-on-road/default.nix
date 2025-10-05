@@ -11,6 +11,8 @@
     "${nhModules}/programs/vim"
     "${nhModules}/programs/kodi"
     "${nhModules}/programs/weston"
+    # Video games
+    "${nhModules}/programs/steam"
     "${nhModules}/virtualisation/qemu"
   ];
 
