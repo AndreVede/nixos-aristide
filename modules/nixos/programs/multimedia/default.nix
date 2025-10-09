@@ -3,6 +3,7 @@ let
   libbluray = pkgs.libbluray.override {
     withAACS = true;
     withBDplus = true;
+    withJava = true;
     libaacs = pkgs.libaacs;
     libbdplus = pkgs.libbdplus;
   };
