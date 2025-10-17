@@ -26,7 +26,7 @@
 
     # Open ports in the Firewall
     allowedTCPPorts = [ 8080 ];
-    allowedUDPPorts = [ 8080 ];
+    allowedUDPPorts = [ 8080 1900 ];
   };
 
   # Enable the OpenSSH daemon. (disable it if no use)
