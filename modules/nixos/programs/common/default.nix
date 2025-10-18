@@ -104,6 +104,9 @@
 
       # APPS
 
+      # terminal
+      alacritty
+
       # Desk
       anydesk
 
