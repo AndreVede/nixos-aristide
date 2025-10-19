@@ -15,6 +15,7 @@
       kernelModules = [ "dm-snapshot" "cryptd" ]; # cryptd is added
       # Encryption disk defined
       luks.devices."cryptroot".device = "/dev/disk/by-label/NIXOS_LUKS";
+      systemd.enable = true;
     };
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
