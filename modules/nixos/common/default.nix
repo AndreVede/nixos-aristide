@@ -68,8 +68,8 @@
       efi.canTouchEfiVariables = true;
     };
 
-    # Use latest kernel.
-    kernelPackages = pkgs.linuxPackages_latest;
+    # Use lts kernel.
+    kernelPackages = pkgs.linuxPackages;
   };
 
   networking = {
