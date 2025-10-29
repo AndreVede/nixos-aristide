@@ -7,6 +7,7 @@
     "${nhModules}/programs/git"
     "${nhModules}/programs/vim"
     "${nhModules}/programs/kodi"
+    "${nhModules}/programs/jellyfin-client"
   ];
 
   home.sessionVariables = {

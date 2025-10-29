@@ -10,6 +10,7 @@
     "${nhModules}/programs/neovim"
     "${nhModules}/programs/vim"
     "${nhModules}/programs/kodi"
+    "${nhModules}/programs/jellyfin-client"
     "${nhModules}/programs/weston"
     # Video games
     "${nhModules}/programs/steam"
