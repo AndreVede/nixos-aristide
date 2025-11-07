@@ -56,6 +56,7 @@
     parabolic
     # DVD num
     handbrake
+    makemkv
   ];
 
   home.stateVersion = "25.05";
